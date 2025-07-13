@@ -1,0 +1,71 @@
+{
+  "name": "web-chat-paste",
+  "displayName": "Web Chat Paste",
+  "description": "Connect to any web chat and paste copied text from VSCode via shortcut.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.102.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:webChatPaste.connect",
+    "onCommand:webChatPaste.copyToChat"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "webChatPaste.connect",
+        "title": "Web Chat Paste: Connect (Start Server)"
+      },
+      {
+        "command": "webChatPaste.copyToChat",
+        "title": "Web Chat Paste: Copy to Chat"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "webChatPaste.copyToChat",
+        "key": "ctrl+alt+c",
+        "mac": "ctrl+cmd+c",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "Web Chat Paste",
+      "properties": {
+        "webChatPaste.targetSite": {
+          "type": "string",
+          "enum": [
+            "t3.chat",
+            "grok"
+          ],
+          "default": "grok",
+          "description": "Select the target chat site for pasting code snippets"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile",
+    "lint": "eslint src --ext ts",
+    "vscode:package": "vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "~20.19.7",
+    "@types/vscode": "^1.102.0",
+    "@types/ws": "^8.18.1",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.6.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "ws": "^8.18.3"
+  }
+}

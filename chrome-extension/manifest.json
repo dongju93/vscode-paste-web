@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Web Chat Paste Client",
+  "version": "0.0.1",
+  "description": "Connect to VSCode and paste text to selected web chat.",
+  "permissions": ["activeTab", "scripting", "tabs"],
+  "host_permissions": [
+    "https://grok.com/*",
+    "https://t3.chat/*",
+    "https://chatgpt.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://grok.com/*",
+        "https://t3.chat/*",
+        "https://chatgpt.com/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}
