@@ -177,3 +177,5 @@ dist
 # End of https://www.toptal.com/developers/gitignore/api/node,macos
 
 CLAUDE.md
+vscode-extension/extension.js
+vscode-extension/extension.js.map
