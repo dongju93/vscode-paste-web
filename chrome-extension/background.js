@@ -38,7 +38,7 @@ function connectToServer() {
 
   socket.onerror = (error) => {
     console.error('WebSocket error:', error.message);
-    // onclose가 자동으로 호출되므�� 여기서 재연결을 시도하지 않습니다.
+    // onclose가 자동으로 호출되므로 여기서 재연결을 시도하지 않습니다.
   };
 }
 

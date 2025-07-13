@@ -13,7 +13,7 @@ VS Code 편집기의 코드를 웹 브라우저에서 실행 중인 특정 채�
 
 이 프로젝트는 **VS Code 확장 프로그램**과 **Chrome 확장 프로그램**의 조합으로 동작하며, WebSocket을 통해 실시간으로 통신합니다.
 
-1.  **VS Code 확���**: 활성화 시 `ws://localhost:8765` 주소로 WebSocket 서버를 실행하여 Chrome 확장의 연결을 대기합니다.
+1.  **VS Code 확인**: 활성화 시 `ws://localhost:8765` 주소로 WebSocket 서버를 실행하여 Chrome 확장의 연결을 대기합니다.
 2.  **사용자 액션**: 사용자가 VS Code에서 코드를 선택하고 단축키(`Ctrl+Cmd+C` on macOS, `Ctrl+Alt+C` on Windows/Linux)를 누르거나 `Web Chat Paste: Copy to Chat` 명령을 실행합니다.
 3.  **코드 전송**: 선택된 텍스트가 WebSocket을 통해 연결된 **Chrome 확장**으로 전송됩니다.
 4.  **Chrome 확장**:
@@ -34,7 +34,7 @@ VS Code 편집기의 코드를 웹 브라우저에서 실행 중인 특정 채�
     cd vscode-extension
     pnpm install
     ```
-2.  VS Code���서 `F5` 키를 눌러 확장 프로그램을 디버그 모드로 실행합니다.
+2.  VS Code 에서 `F5` 키를 눌러 확장 프로그램을 디버그 모드로 실행합니다.
 
 ### 2. Chrome 확장 프로그램
 

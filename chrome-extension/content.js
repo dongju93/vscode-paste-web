@@ -47,7 +47,7 @@ function simulateTextInput(inputField, text) {
       }),
     );
   } else {
-    // textarea 또��� input의 경우
+    // textarea 또는 input의 경우
     inputField.select();
     if (inputField.setRangeText) {
       inputField.setRangeText('', 0, inputField.value.length, 'preserve');
