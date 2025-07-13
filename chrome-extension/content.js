@@ -26,19 +26,16 @@ function simulateTextInput(inputField, text) {
 		selection.removeAllRanges();
 		selection.addRange(range);
 
-		// insertText 명령을 사용하여 React의 이벤트 리스너를 트리거
-		document.execCommand("insertText", false, text);
+    // 현대적인 방법으로 텍스트 삽입 - execCommand 대신 직접 DOM 조작
+    range.deleteContents();
+    const textNode = document.createTextNode(text);
+    range.insertNode(textNode);
 
-	} else {
-		// textarea 또��� input의 경우
-		inputField.select();
-		if (inputField.setRangeText) {
-			inputField.setRangeText('', 0, inputField.value.length, 'preserve');
-			inputField.setRangeText(text, 0, 0, 'end');
-		} else {
-			inputField.value = text;
-		}
-	}
+    // 커서를 텍스트 끝으로 이동
+    range.setStartAfter(textNode);
+    range.setEndAfter(textNode);
+    selection.removeAllRanges();
+    selection.addRange(range);
 
 	// React 상태 업데이트를 위한 이벤트 발생
 	events.forEach(eventConfig => {
